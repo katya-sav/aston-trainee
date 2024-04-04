@@ -53,22 +53,24 @@
 // С помощью конструкторов
 function Animal(name) {
   this.name = name;
-
-  this.speak = function () {
-    console.log("Some generic sound");
-  };
 }
+
+// Записываем методы в прототип
+Animal.prototype.speak = function () {
+  console.log("Some generic sound");
+};
 
 function Bird(name) {
   Animal.call(this, name); // применяем конструктор Animal
-
-  this.fly = function () {
-    console.log("Flying high!");
-  };
 }
 
-Bird.prototype = Object.create(Animal.prototype); // наследование прототипа от Animal, но при этом созданный объект указывает на конструктор Animal
-Bird.prototype.constructor = Bird; // установка конструктора Bird
+// Записываем методы в прототип
+Bird.prototype.fly = function () {
+  console.log("Flying high!");
+};
+
+// Создаем цепочку прототипов
+Object.setPrototypeOf(Bird.prototype, Animal.prototype);
 
 const animal = new Animal("Дженни");
 const bird = new Bird("Воробей");
