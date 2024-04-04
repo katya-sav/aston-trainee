@@ -68,6 +68,15 @@ const user = {
   },
 };
 
+// const user = {
+//     name: 'Mike',
+//     fn: function () {
+//         console.log(this.name)
+//     }
+// }
+//
+// setTimeout(user.fn, 1000)
+
 setTimeout(user.fn, 1000);
 
 // Что будет выведено в консоль после истечения таймаута и почему?
